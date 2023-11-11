@@ -17,7 +17,7 @@ const createUser = (_username, req) => {
 
     console.log(user);
     users.push(user);
-    return users;
+    return user;
 };
 
 const authenticateKey = (req, res, next) => {

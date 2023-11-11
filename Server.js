@@ -13,8 +13,15 @@ app.get('/', (req, res) => {
 
 app.post('/api/register', (req, res) => {
     let username = req.body.username;
+    if(!username){
+        res.status(400).send({
+            message: "username cannot be empty"
+        });
+    } else {
+    
     let user = API.createUser(username, req);
     res.status(201).send({data: user});
+    }
 });
 
 app.get('/api/country', API.authenticateKey, (req, res) => {
